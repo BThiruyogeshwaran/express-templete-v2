@@ -1,7 +1,7 @@
-import winston from "winston";
+import winston, { format } from "winston";
 
 const logger = winston.createLogger({
-  format: winston.format.json(),
+  format: format.combine(format.timestamp(), format.json()),
   transports: [
     new winston.transports.File({
       name: "debug-file",
